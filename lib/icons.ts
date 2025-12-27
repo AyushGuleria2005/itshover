@@ -144,5 +144,3 @@ export const ICONS = [
     path: "/icons/whatsapp-icon",
   },
 ];
-
-
