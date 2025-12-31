@@ -1,7 +1,7 @@
 import { AnimatedIconProps } from "./types";
 import { motion, useAnimate } from "motion/react";
 
-const RainbowIcon = ({
+const ArrowBigRightDashIcon = ({
   size = 24,
   color = "currentColor",
   strokeWidth = 2,
@@ -10,25 +10,21 @@ const RainbowIcon = ({
   const [scope, animate] = useAnimate();
 
   const hoverAnimation = async () => {
+    animate(".arrow", { x: 4 }, { duration: 0.3, ease: "easeOut" });
     animate(
-      ".arc1",
-      { pathLength: [0, 1] },
-      { duration: 0.6, ease: "easeOut" },
-    );
-    animate(
-      ".arc2",
-      { pathLength: [0, 1] },
-      { duration: 0.6, ease: "easeOut", delay: 0.1 },
-    );
-    await animate(
-      ".arc3",
-      { pathLength: [0, 1] },
-      { duration: 0.6, ease: "easeOut", delay: 0.2 },
+      ".dash",
+      { scale: 1.2, opacity: 0.7 },
+      { duration: 0.3, ease: "easeOut" },
     );
   };
 
   const resetAnimation = () => {
-    animate(".arc1, .arc2, .arc3", { pathLength: 1 }, { duration: 0.2 });
+    animate(".arrow", { x: 0 }, { duration: 0.2, ease: "easeInOut" });
+    animate(
+      ".dash",
+      { scale: 1, opacity: 1 },
+      { duration: 0.2, ease: "easeInOut" },
+    );
   };
 
   return (
@@ -48,22 +44,16 @@ const RainbowIcon = ({
       className={`cursor-pointer ${className}`}
     >
       <motion.path
-        className="arc1"
-        d="M22 17a10 10 0 0 0-20 0"
-        initial={{ pathLength: 1 }}
+        className="arrow"
+        d="M11 9a1 1 0 0 0 1-1V5.061a1 1 0 0 1 1.811-.75l6.836 6.836a1.207 1.207 0 0 1 0 1.707l-6.836 6.835a1 1 0 0 1-1.811-.75V16a1 1 0 0 0-1-1H9a1 1 0 0 1-1-1v-4a1 1 0 0 1 1-1z"
       />
       <motion.path
-        className="arc2"
-        d="M6 17a6 6 0 0 1 12 0"
-        initial={{ pathLength: 1 }}
-      />
-      <motion.path
-        className="arc3"
-        d="M10 17a2 2 0 0 1 4 0"
-        initial={{ pathLength: 1 }}
+        className="dash"
+        style={{ transformOrigin: "4px 12px" }}
+        d="M4 9v6"
       />
     </motion.svg>
   );
 };
 
-export default RainbowIcon;
+export default ArrowBigRightDashIcon;

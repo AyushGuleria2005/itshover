@@ -1,7 +1,7 @@
 import { AnimatedIconProps } from "./types";
 import { motion, useAnimate } from "motion/react";
 
-const MousePointer2Icon = ({
+const CandyCaneIcon = ({
   size = 24,
   color = "currentColor",
   strokeWidth = 2,
@@ -11,28 +11,21 @@ const MousePointer2Icon = ({
 
   const hoverAnimation = async () => {
     animate(
-      ".pointer",
-      {
-        x: [0, 3, 0, -3, 0],
-        y: [0, -3, 0, 3, 0],
-      },
-      {
-        duration: 1.2,
-        ease: "easeInOut",
-        repeat: Infinity,
-      },
+      ".cane",
+      { rotate: [0, -10, 10, -5, 5, 0] },
+      { duration: 0.6, ease: "easeInOut" },
     );
   };
 
-  const hoverEndAnimation = () => {
-    animate(".pointer", { x: 0, y: 0 }, { duration: 0.3 });
+  const resetAnimation = () => {
+    animate(".cane", { rotate: 0 }, { duration: 0.2, ease: "easeInOut" });
   };
 
   return (
     <motion.svg
       ref={scope}
       onHoverStart={hoverAnimation}
-      onHoverEnd={hoverEndAnimation}
+      onHoverEnd={resetAnimation}
       xmlns="http://www.w3.org/2000/svg"
       width={size}
       height={size}
@@ -44,13 +37,15 @@ const MousePointer2Icon = ({
       strokeLinejoin="round"
       className={`cursor-pointer ${className}`}
     >
-      <motion.path
-        className="pointer"
-        style={{ transformOrigin: "center" }}
-        d="M4.037 4.688a.495.495 0 0 1 .651-.651l16 6.5a.5.5 0 0 1-.063.947l-6.124 1.58a2 2 0 0 0-1.438 1.435l-1.579 6.126a.5.5 0 0 1-.947.063z"
-      />
+      <motion.g className="cane" style={{ transformOrigin: "12px 12px" }}>
+        <path d="M5.7 21a2 2 0 0 1-3.5-2l8.6-14a6 6 0 0 1 10.4 6 2 2 0 1 1-3.464-2 2 2 0 1 0-3.464-2Z" />
+        <path d="M17.75 7 15 2.1" />
+        <path d="M10.9 4.8 13 9" />
+        <path d="m7.9 9.7 2 4.4" />
+        <path d="M4.9 14.7 7 18.9" />
+      </motion.g>
     </motion.svg>
   );
 };
 
-export default MousePointer2Icon;
+export default CandyCaneIcon;

@@ -1,27 +1,31 @@
 import { AnimatedIconProps } from "./types";
 import { motion, useAnimate } from "motion/react";
 
-const RefreshIcon = ({
+const GaugeIcon = ({
   size = 24,
   color = "currentColor",
   strokeWidth = 2,
   className = "",
 }: AnimatedIconProps) => {
   const [scope, animate] = useAnimate();
-  const handleAnimate = async () => {
-    await animate(
-      scope.current,
-      { rotate: 180 },
-      { duration: 0.4, ease: "easeInOut" },
+
+  const hoverAnimation = async () => {
+    animate(
+      ".needle",
+      { rotate: [0, 45, -20, 30, 0] },
+      { duration: 0.8, ease: "easeInOut" },
     );
-    animate(scope.current, { rotate: 0 }, { duration: 0.4, ease: "easeInOut" });
+  };
+
+  const resetAnimation = () => {
+    animate(".needle", { rotate: 0 }, { duration: 0.3, ease: "easeInOut" });
   };
 
   return (
     <motion.svg
       ref={scope}
-      onMouseEnter={handleAnimate}
-      onMouseLeave={handleAnimate}
+      onHoverStart={hoverAnimation}
+      onHoverEnd={resetAnimation}
       xmlns="http://www.w3.org/2000/svg"
       width={size}
       height={size}
@@ -33,11 +37,14 @@ const RefreshIcon = ({
       strokeLinejoin="round"
       className={`cursor-pointer ${className}`}
     >
-      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-      <path d="M20 11a8.1 8.1 0 0 0 -15.5 -2m-.5 -4v4h4" />
-      <path d="M4 13a8.1 8.1 0 0 0 15.5 2m.5 4v-4h-4" />
+      <path d="M3.34 19a10 10 0 1 1 17.32 0" />
+      <motion.path
+        className="needle"
+        style={{ transformOrigin: "12px 14px" }}
+        d="m12 14 4-4"
+      />
     </motion.svg>
   );
 };
 
-export default RefreshIcon;
+export default GaugeIcon;

@@ -1,7 +1,7 @@
 import { AnimatedIconProps } from "./types";
 import { motion, useAnimate } from "motion/react";
 
-const ScanHeartIcon = ({
+const CameraIcon = ({
   size = 24,
   color = "currentColor",
   strokeWidth = 2,
@@ -10,13 +10,13 @@ const ScanHeartIcon = ({
   const [scope, animate] = useAnimate();
 
   const hoverAnimation = async () => {
-    animate(".heart", { scale: 1.3 }, { duration: 0.25, ease: "easeOut" });
-    animate(".corners", { scale: 0.85 }, { duration: 0.25, ease: "easeOut" });
+    animate(".lens", { scale: 1.2 }, { duration: 0.3, ease: "easeOut" });
+    animate(".body", { scale: 0.95 }, { duration: 0.3, ease: "easeOut" });
   };
 
   const resetAnimation = () => {
-    animate(".heart", { scale: 1 }, { duration: 0.2, ease: "easeInOut" });
-    animate(".corners", { scale: 1 }, { duration: 0.2, ease: "easeInOut" });
+    animate(".lens", { scale: 1 }, { duration: 0.2, ease: "easeInOut" });
+    animate(".body", { scale: 1 }, { duration: 0.2, ease: "easeInOut" });
   };
 
   return (
@@ -35,17 +35,19 @@ const ScanHeartIcon = ({
       strokeLinejoin="round"
       className={`cursor-pointer ${className}`}
     >
-      <motion.path className="corners" d="M17 3h2a2 2 0 0 1 2 2v2" />
-      <motion.path className="corners" d="M21 17v2a2 2 0 0 1-2 2h-2" />
-      <motion.path className="corners" d="M3 7V5a2 2 0 0 1 2-2h2" />
-      <motion.path className="corners" d="M7 21H5a2 2 0 0 1-2-2v-2" />
       <motion.path
-        className="heart"
+        className="body"
+        d="M13.997 4a2 2 0 0 1 1.76 1.05l.486.9A2 2 0 0 0 18.003 7H20a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h1.997a2 2 0 0 0 1.759-1.048l.489-.904A2 2 0 0 1 10.004 4z"
+      />
+      <motion.circle
+        className="lens"
         style={{ transformOrigin: "12px 13px" }}
-        d="M7.828 13.07A3 3 0 0 1 12 8.764a3 3 0 0 1 4.172 4.306l-3.447 3.62a1 1 0 0 1-1.449 0z"
+        cx="12"
+        cy="13"
+        r="3"
       />
     </motion.svg>
   );
 };
 
-export default ScanHeartIcon;
+export default CameraIcon;

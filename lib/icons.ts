@@ -12,12 +12,56 @@ export const ICONS = [
     path: "/icons/align-center-icon",
   },
   {
+    name: "align vertical space around icon",
+    path: "/icons/align-vertical-space-around-icon",
+  },
+  {
+    name: "ambulance icon",
+    path: "/icons/ambulance-icon",
+  },
+  {
+    name: "angry icon",
+    path: "/icons/angry-icon",
+  },
+  {
+    name: "annoyed icon",
+    path: "/icons/annoyed-icon",
+  },
+  {
     name: "arrow back icon",
     path: "/icons/arrow-back-icon",
   },
   {
     name: "arrow back up icon",
     path: "/icons/arrow-back-up-icon",
+  },
+  {
+    name: "arrow big left icon",
+    path: "/icons/arrow-big-left-icon",
+  },
+  {
+    name: "arrow big left dash icon",
+    path: "/icons/arrow-big-left-dash-icon",
+  },
+  {
+    name: "arrow big right icon",
+    path: "/icons/arrow-big-right-icon",
+  },
+  {
+    name: "arrow big right dash icon",
+    path: "/icons/arrow-big-right-dash-icon",
+  },
+  {
+    name: "arrow big up icon",
+    path: "/icons/arrow-big-up-icon",
+  },
+  {
+    name: "arrow big up dash icon",
+    path: "/icons/arrow-big-up-dash-icon",
+  },
+  {
+    name: "arrow down 1 0 icon",
+    path: "/icons/arrow-down-1-0-icon",
   },
   {
     name: "arrow narrow down dashed icon",
@@ -100,6 +144,18 @@ export const ICONS = [
     path: "/icons/bulb-svg",
   },
   {
+    name: "camera icon",
+    path: "/icons/camera-icon",
+  },
+  {
+    name: "camera off icon",
+    path: "/icons/camera-off-icon",
+  },
+  {
+    name: "candy cane icon",
+    path: "/icons/candy-cane-icon",
+  },
+  {
     name: "cart icon",
     path: "/icons/cart-icon",
   },
@@ -132,6 +188,14 @@ export const ICONS = [
     path: "/icons/clock-icon",
   },
   {
+    name: "code icon",
+    path: "/icons/code-icon",
+  },
+  {
+    name: "code xml icon",
+    path: "/icons/code-xml-icon",
+  },
+  {
     name: "coin bitcoin icon",
     path: "/icons/coin-bitcoin-icon",
   },
@@ -142,6 +206,10 @@ export const ICONS = [
   {
     name: "copy off icon",
     path: "/icons/copy-off-icon",
+  },
+  {
+    name: "cpu icon",
+    path: "/icons/cpu-icon",
   },
   {
     name: "credit card",
@@ -248,6 +316,10 @@ export const ICONS = [
     path: "/icons/flame-icon",
   },
   {
+    name: "gauge icon",
+    path: "/icons/gauge-icon",
+  },
+  {
     name: "gear icon",
     path: "/icons/gear-icon",
   },
@@ -274,6 +346,10 @@ export const ICONS = [
   {
     name: "gmail icon",
     path: "/icons/gmail-icon",
+  },
+  {
+    name: "hand heart icon",
+    path: "/icons/hand-heart-icon",
   },
   {
     name: "home icon",
@@ -334,6 +410,10 @@ export const ICONS = [
   {
     name: "nodejs icon",
     path: "/icons/nodejs-icon",
+  },
+  {
+    name: "party popper icon",
+    path: "/icons/party-popper-icon",
   },
   {
     name: "pen icon",

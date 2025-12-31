@@ -20,6 +20,7 @@ import CoffeeIcon from "@/icons/coffee-icon";
 import MessageCircleIcon from "@/icons/message-circle-icon";
 import CurrencyBitcoinIcon from "@/icons/currency-bitcoin-icon";
 import CurrencyEthereumIcon from "@/icons/currency-ethereum-icon";
+import Image from "next/image";
 
 const SponsorCard = ({
   title,
@@ -262,9 +263,11 @@ export default function SponsorContent() {
               </button>
               <h3 className="mb-4 text-xl font-semibold">UPI QR Code</h3>
               <div className="rounded-lg bg-white p-4">
-                <img
+                <Image
                   src={SPONSOR.qrCode}
                   alt="UPI QR Code"
+                  width={200}
+                  height={200}
                   className="h-auto w-full"
                 />
               </div>

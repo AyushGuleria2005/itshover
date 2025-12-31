@@ -1,7 +1,7 @@
 import { AnimatedIconProps } from "./types";
 import { motion, useAnimate } from "motion/react";
 
-const RainbowIcon = ({
+const CodeXmlIcon = ({
   size = 24,
   color = "currentColor",
   strokeWidth = 2,
@@ -10,25 +10,23 @@ const RainbowIcon = ({
   const [scope, animate] = useAnimate();
 
   const hoverAnimation = async () => {
+    animate(".left-bracket", { x: -3 }, { duration: 0.3, ease: "easeOut" });
+    animate(".right-bracket", { x: 3 }, { duration: 0.3, ease: "easeOut" });
     animate(
-      ".arc1",
-      { pathLength: [0, 1] },
-      { duration: 0.6, ease: "easeOut" },
-    );
-    animate(
-      ".arc2",
-      { pathLength: [0, 1] },
-      { duration: 0.6, ease: "easeOut", delay: 0.1 },
-    );
-    await animate(
-      ".arc3",
-      { pathLength: [0, 1] },
-      { duration: 0.6, ease: "easeOut", delay: 0.2 },
+      ".slash",
+      { scale: 1.1, opacity: 0.7 },
+      { duration: 0.3, ease: "easeOut" },
     );
   };
 
   const resetAnimation = () => {
-    animate(".arc1, .arc2, .arc3", { pathLength: 1 }, { duration: 0.2 });
+    animate(".left-bracket", { x: 0 }, { duration: 0.2, ease: "easeInOut" });
+    animate(".right-bracket", { x: 0 }, { duration: 0.2, ease: "easeInOut" });
+    animate(
+      ".slash",
+      { scale: 1, opacity: 1 },
+      { duration: 0.2, ease: "easeInOut" },
+    );
   };
 
   return (
@@ -47,23 +45,15 @@ const RainbowIcon = ({
       strokeLinejoin="round"
       className={`cursor-pointer ${className}`}
     >
+      <motion.path className="right-bracket" d="m18 16 4-4-4-4" />
+      <motion.path className="left-bracket" d="m6 8-4 4 4 4" />
       <motion.path
-        className="arc1"
-        d="M22 17a10 10 0 0 0-20 0"
-        initial={{ pathLength: 1 }}
-      />
-      <motion.path
-        className="arc2"
-        d="M6 17a6 6 0 0 1 12 0"
-        initial={{ pathLength: 1 }}
-      />
-      <motion.path
-        className="arc3"
-        d="M10 17a2 2 0 0 1 4 0"
-        initial={{ pathLength: 1 }}
+        className="slash"
+        style={{ transformOrigin: "12px 12px" }}
+        d="m14.5 4-5 16"
       />
     </motion.svg>
   );
 };
 
-export default RainbowIcon;
+export default CodeXmlIcon;

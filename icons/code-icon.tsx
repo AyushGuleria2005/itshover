@@ -1,7 +1,7 @@
 import { AnimatedIconProps } from "./types";
 import { motion, useAnimate } from "motion/react";
 
-const MousePointer2Icon = ({
+const CodeIcon = ({
   size = 24,
   color = "currentColor",
   strokeWidth = 2,
@@ -10,29 +10,20 @@ const MousePointer2Icon = ({
   const [scope, animate] = useAnimate();
 
   const hoverAnimation = async () => {
-    animate(
-      ".pointer",
-      {
-        x: [0, 3, 0, -3, 0],
-        y: [0, -3, 0, 3, 0],
-      },
-      {
-        duration: 1.2,
-        ease: "easeInOut",
-        repeat: Infinity,
-      },
-    );
+    animate(".left-bracket", { x: -3 }, { duration: 0.3, ease: "easeOut" });
+    animate(".right-bracket", { x: 3 }, { duration: 0.3, ease: "easeOut" });
   };
 
-  const hoverEndAnimation = () => {
-    animate(".pointer", { x: 0, y: 0 }, { duration: 0.3 });
+  const resetAnimation = () => {
+    animate(".left-bracket", { x: 0 }, { duration: 0.2, ease: "easeInOut" });
+    animate(".right-bracket", { x: 0 }, { duration: 0.2, ease: "easeInOut" });
   };
 
   return (
     <motion.svg
       ref={scope}
       onHoverStart={hoverAnimation}
-      onHoverEnd={hoverEndAnimation}
+      onHoverEnd={resetAnimation}
       xmlns="http://www.w3.org/2000/svg"
       width={size}
       height={size}
@@ -44,13 +35,10 @@ const MousePointer2Icon = ({
       strokeLinejoin="round"
       className={`cursor-pointer ${className}`}
     >
-      <motion.path
-        className="pointer"
-        style={{ transformOrigin: "center" }}
-        d="M4.037 4.688a.495.495 0 0 1 .651-.651l16 6.5a.5.5 0 0 1-.063.947l-6.124 1.58a2 2 0 0 0-1.438 1.435l-1.579 6.126a.5.5 0 0 1-.947.063z"
-      />
+      <motion.path className="right-bracket" d="m16 18 6-6-6-6" />
+      <motion.path className="left-bracket" d="m8 6-6 6 6 6" />
     </motion.svg>
   );
 };
 
-export default MousePointer2Icon;
+export default CodeIcon;

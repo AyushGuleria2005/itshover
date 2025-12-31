@@ -2,8 +2,19 @@ import { AnimatedIconProps } from "./types";
 import AccessibilityIcon from "./accessibility-icon";
 import AlarmClockPlusIcon from "./alarm-clock-plus-icon";
 import AlignCenterIcon from "./align-center-icon";
+import AlignVerticalSpaceAroundIcon from "./align-vertical-space-around-icon";
+import AmbulanceIcon from "./ambulance-icon";
+import AngryIcon from "./angry-icon";
+import AnnoyedIcon from "./annoyed-icon";
 import ArrowBackIcon from "./arrow-back-icon";
 import ArrowBackUpIcon from "./arrow-back-up-icon";
+import ArrowBigLeftIcon from "./arrow-big-left-icon";
+import ArrowBigLeftDashIcon from "./arrow-big-left-dash-icon";
+import ArrowBigRightIcon from "./arrow-big-right-icon";
+import ArrowBigRightDashIcon from "./arrow-big-right-dash-icon";
+import ArrowBigUpIcon from "./arrow-big-up-icon";
+import ArrowBigUpDashIcon from "./arrow-big-up-dash-icon";
+import ArrowDown10Icon from "./arrow-down-1-0-icon";
 import ArrowNarrowDownDashedIcon from "./arrow-narrow-down-dashed-icon";
 import ArrowNarrowDownIcon from "./arrow-narrow-down-icon";
 import ArrowNarrowLeftDashedIcon from "./arrow-narrow-left-dashed-icon";
@@ -25,6 +36,9 @@ import BookmarkIcon from "./bookmark-icon";
 import BrandGoogleIcon from "./brand-google-icon";
 import BrightnessDownIcon from "./brightness-down-icon";
 import BulbSvg from "./bulb-svg";
+import CameraIcon from "./camera-icon";
+import CameraOffIcon from "./camera-off-icon";
+import CandyCaneIcon from "./candy-cane-icon";
 import CartIcon from "./cart-icon";
 import ChartBarIcon from "./chart-bar-icon";
 import ChartCovariateIcon from "./chart-covariate-icon";
@@ -33,12 +47,15 @@ import ChartLineIcon from "./chart-line-icon";
 import ChartPieIcon from "./chart-pie-icon";
 import CheckedIcon from "./checked-icon";
 import ClockIcon from "./clock-icon";
+import CodeIcon from "./code-icon";
+import CodeXmlIcon from "./code-xml-icon";
 import CoffeeIcon from "./coffee-icon";
 import CreditCard from "./credit-card";
 import CopyIcon from "./copy-icon";
 import DiscordIcon from "./discord-icon";
 import DockerIcon from "./docker-icon";
 import CopyOffIcon from "./copy-off-icon";
+import CpuIcon from "./cpu-icon";
 import CurrencyBitcoinIcon from "./currency-bitcoin-icon";
 import CurrencyDollarIcon from "./currency-dollar-icon";
 import CurrencyEthereumIcon from "./currency-ethereum-icon";
@@ -62,12 +79,14 @@ import FilledCheckedIcon from "./filled-checked-icon";
 import FacebookIcon from "./facebook-icon";
 import FigmaIcon from "./figma-icon";
 import FocusIcon from "./focus-icon";
+import GaugeIcon from "./gauge-icon";
 import GearIcon from "./gear-icon";
 import GmailIcon from "./gmail-icon";
 import GhostIcon from "./ghost-icon";
 import GithubIcon from "./github-icon";
 import GithubCopilotIcon from "./github-copilot-icon";
 import GitlabIcon from "./gitlab-icon";
+import HandHeartIcon from "./hand-heart-icon";
 import HeartIcon from "./heart-icon";
 import HistoryCircleIcon from "./history-circle-icon";
 import HomeIcon from "./home-icon";
@@ -87,6 +106,7 @@ import MoonIcon from "./moon-icon";
 import MousePointer2Icon from "./mouse-pointer-2-icon";
 import MySQLIcon from "./mysql-icon";
 import NodeJSIcon from "./nodejs-icon";
+import PartyPopperIcon from "./party-popper-icon";
 import PenIcon from "./pen-icon";
 import PhoneVolume from "./phone-volume";
 import PinterestIcon from "./pinterest-icon";
@@ -112,7 +132,7 @@ import SparklesIcon from "./sparkles-icon";
 import SpotifyIcon from "./spotify-icon";
 import StarIcon from "./star-icon";
 import TelephoneIcon from "./telephone-icon";
-import TextIcon from "./text-icon";
+import ArrowDownAZIcon from "./arrow-down-a-z-icon";
 import ToggleIcon from "./toggle-icon";
 import TrashIcon from "./trash-icon";
 import UnorderedListIcon from "./unordered-list-icon";
@@ -157,6 +177,60 @@ export interface IconType {
 
 const ICON_LIST: IconType[] = [
   {
+    name: "accessibility-icon",
+    icon: AccessibilityIcon,
+    keywords: ["accessibility", "a11y", "wheelchair", "disabled", "inclusive"],
+  },
+  {
+    name: "alarm-clock-plus-icon",
+    icon: AlarmClockPlusIcon,
+    keywords: ["alarm", "clock", "plus", "add", "timer", "time", "reminder"],
+  },
+  {
+    name: "align-center-icon",
+    icon: AlignCenterIcon,
+    keywords: ["align", "center", "text", "format", "paragraph"],
+  },
+  {
+    name: "align-vertical-space-around-icon",
+    icon: AlignVerticalSpaceAroundIcon,
+    keywords: ["align", "vertical", "space", "around", "distribute", "layout"],
+  },
+  {
+    name: "ambulance-icon",
+    icon: AmbulanceIcon,
+    keywords: [
+      "ambulance",
+      "emergency",
+      "medical",
+      "hospital",
+      "vehicle",
+      "health",
+    ],
+  },
+  {
+    name: "angry-icon",
+    icon: AngryIcon,
+    keywords: ["angry", "mad", "emotion", "face", "emoji", "upset"],
+  },
+  {
+    name: "annoyed-icon",
+    icon: AnnoyedIcon,
+    keywords: [
+      "annoyed",
+      "irritated",
+      "emotion",
+      "face",
+      "emoji",
+      "frustrated",
+    ],
+  },
+  {
+    name: "apple-brand-logo",
+    icon: AppleBrandLogo,
+    keywords: ["apple", "brand", "logo", "mac", "ios"],
+  },
+  {
     name: "arrow-back-icon",
     icon: ArrowBackIcon,
     keywords: ["arrow", "back", "return", "undo", "previous"],
@@ -165,6 +239,41 @@ const ICON_LIST: IconType[] = [
     name: "arrow-back-up-icon",
     icon: ArrowBackUpIcon,
     keywords: ["arrow", "back", "up", "undo", "return"],
+  },
+  {
+    name: "arrow-big-left-icon",
+    icon: ArrowBigLeftIcon,
+    keywords: ["arrow", "big", "left", "back", "previous", "navigation"],
+  },
+  {
+    name: "arrow-big-left-dash-icon",
+    icon: ArrowBigLeftDashIcon,
+    keywords: ["arrow", "big", "left", "dash", "back", "previous"],
+  },
+  {
+    name: "arrow-big-right-icon",
+    icon: ArrowBigRightIcon,
+    keywords: ["arrow", "big", "right", "next", "forward", "navigation"],
+  },
+  {
+    name: "arrow-big-right-dash-icon",
+    icon: ArrowBigRightDashIcon,
+    keywords: ["arrow", "big", "right", "dash", "next", "forward"],
+  },
+  {
+    name: "arrow-big-up-icon",
+    icon: ArrowBigUpIcon,
+    keywords: ["arrow", "big", "up", "upload", "top", "navigation"],
+  },
+  {
+    name: "arrow-big-up-dash-icon",
+    icon: ArrowBigUpDashIcon,
+    keywords: ["arrow", "big", "up", "dash", "upload", "top"],
+  },
+  {
+    name: "arrow-down-1-0-icon",
+    icon: ArrowDown10Icon,
+    keywords: ["arrow", "down", "sort", "descending", "number", "order"],
   },
   {
     name: "arrow-narrow-down-dashed-icon",
@@ -207,11 +316,6 @@ const ICON_LIST: IconType[] = [
     keywords: ["arrow", "up", "upload", "scroll"],
   },
   {
-    name: "apple-brand-logo",
-    icon: AppleBrandLogo,
-    keywords: ["apple", "brand", "logo", "mac", "ios"],
-  },
-  {
     name: "at-sign-icon",
     icon: AtSignIcon,
     keywords: ["at", "sign", "@", "email", "mention", "tag", "social"],
@@ -220,21 +324,6 @@ const ICON_LIST: IconType[] = [
     name: "banana-icon",
     icon: BananaIcon,
     keywords: ["banana", "fruit", "food", "tropical", "yellow"],
-  },
-  {
-    name: "accessibility-icon",
-    icon: AccessibilityIcon,
-    keywords: ["accessibility", "a11y", "wheelchair", "disabled", "inclusive"],
-  },
-  {
-    name: "alarm-clock-plus-icon",
-    icon: AlarmClockPlusIcon,
-    keywords: ["alarm", "clock", "plus", "add", "timer", "time", "reminder"],
-  },
-  {
-    name: "align-center-icon",
-    icon: AlignCenterIcon,
-    keywords: ["align", "center", "text", "format", "paragraph"],
   },
   {
     name: "battery-icon",
@@ -294,6 +383,21 @@ const ICON_LIST: IconType[] = [
     keywords: ["bulb", "light", "idea", "creativity"],
   },
   {
+    name: "camera-icon",
+    icon: CameraIcon,
+    keywords: ["camera", "photo", "picture", "lens", "photography", "capture"],
+  },
+  {
+    name: "camera-off-icon",
+    icon: CameraOffIcon,
+    keywords: ["camera", "off", "disabled", "no camera", "privacy"],
+  },
+  {
+    name: "candy-cane-icon",
+    icon: CandyCaneIcon,
+    keywords: ["candy", "cane", "christmas", "sweet", "holiday", "festive"],
+  },
+  {
     name: "cart-icon",
     icon: CartIcon,
     keywords: ["cart", "shopping", "buy", "store"],
@@ -341,6 +445,16 @@ const ICON_LIST: IconType[] = [
     keywords: ["clock", "time", "watch", "timer", "schedule"],
   },
   {
+    name: "code-icon",
+    icon: CodeIcon,
+    keywords: ["code", "brackets", "programming", "developer", "syntax"],
+  },
+  {
+    name: "code-xml-icon",
+    icon: CodeXmlIcon,
+    keywords: ["code", "xml", "html", "markup", "tag", "programming"],
+  },
+  {
     name: "coffee-icon",
     icon: CoffeeIcon,
     keywords: ["coffee", "cup", "drink", "cafe", "steam", "hot", "beverage"],
@@ -349,6 +463,18 @@ const ICON_LIST: IconType[] = [
     name: "credit-card",
     icon: CreditCard,
     keywords: ["credit", "card", "payment", "money"],
+  },
+  {
+    name: "cpu-icon",
+    icon: CpuIcon,
+    keywords: [
+      "cpu",
+      "processor",
+      "chip",
+      "hardware",
+      "computing",
+      "performance",
+    ],
   },
   {
     name: "currency-bitcoin-icon",
@@ -491,6 +617,11 @@ const ICON_LIST: IconType[] = [
     keywords: ["expand", "fullscreen", "maximize", "enlarge", "grow"],
   },
   {
+    name: "external-link-icon",
+    icon: ExternalLinkIcon,
+    keywords: ["external", "link", "open", "new", "window", "tab", "out"],
+  },
+  {
     name: "figma-icon",
     icon: FigmaIcon,
     keywords: ["figma", "design", "ui", "ux", "prototype"],
@@ -499,6 +630,18 @@ const ICON_LIST: IconType[] = [
     name: "focus-icon",
     icon: FocusIcon,
     keywords: ["focus", "target", "aim", "center", "concentrate"],
+  },
+  {
+    name: "gauge-icon",
+    icon: GaugeIcon,
+    keywords: [
+      "gauge",
+      "meter",
+      "speed",
+      "dashboard",
+      "performance",
+      "measure",
+    ],
   },
   {
     name: "file-description-icon",
@@ -544,6 +687,11 @@ const ICON_LIST: IconType[] = [
     name: "gitlab-icon",
     icon: GitlabIcon,
     keywords: ["gitlab", "git", "code", "repository", "devops"],
+  },
+  {
+    name: "hand-heart-icon",
+    icon: HandHeartIcon,
+    keywords: ["hand", "heart", "love", "care", "support", "charity", "donate"],
   },
   {
     name: "heart-icon",
@@ -722,9 +870,9 @@ const ICON_LIST: IconType[] = [
     keywords: ["telephone", "call", "phone", "contact"],
   },
   {
-    name: "text-icon",
-    icon: TextIcon,
-    keywords: ["text", "type", "font", "write"],
+    name: "arrow-down-a-z-icon",
+    icon: ArrowDownAZIcon,
+    keywords: ["text", "type", "font", "write", "sort", "alphabetical"],
   },
   {
     name: "toggle-icon",
@@ -985,6 +1133,11 @@ const ICON_LIST: IconType[] = [
     name: "nodejs-icon",
     icon: NodeJSIcon,
     keywords: ["nodejs", "node", "javascript", "server", "backend"],
+  },
+  {
+    name: "party-popper-icon",
+    icon: PartyPopperIcon,
+    keywords: ["party", "popper", "celebration", "confetti", "celebrate"],
   },
   {
     name: "moon-icon",

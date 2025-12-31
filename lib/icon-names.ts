@@ -59,6 +59,7 @@ export const ICON_NAMES = [
   "mouse-pointer-2-icon",
   "mysql-icon",
   "nodejs-icon",
+  "party-popper-icon",
   "pen-icon",
   "phone-volume",
   "pinterest-icon",
