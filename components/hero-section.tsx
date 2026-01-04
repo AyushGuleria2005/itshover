@@ -1,5 +1,5 @@
 "use client";
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useCallback } from "react";
 import Link from "next/link";
 import PrimaryButton from "@/components/ui/primary-button";
 import SecondaryButton from "@/components/ui/secondary-button";
@@ -112,7 +112,7 @@ const HeroBackground = () => {
 
   const lastInteractionRef = useRef<number>(0);
 
-  const triggerAllAnimations = () => {
+  const triggerAllAnimations = useCallback(() => {
     const iconRefs = [
       githubRef,
       likeRef,
@@ -130,7 +130,7 @@ const HeroBackground = () => {
         ref.current?.stopAnimation();
       }, ANIMATION_DURATION_MS);
     });
-  };
+  }, []);
 
   const handleIconInteraction = () => {
     lastInteractionRef.current = Date.now();
@@ -155,7 +155,7 @@ const HeroBackground = () => {
       clearTimeout(initialTimeout);
       clearInterval(idleInterval);
     };
-  }, []);
+  }, [triggerAllAnimations]);
   return (
     <div>
       <div
