@@ -241,18 +241,19 @@ import YourIcon from "./your-icon";
 
 **c) `registry.json`:**
 
-Auto-generated when you run `npm run registry:sync` in the next step.
+Auto-generated when you run `npm run registry:build` in the next step.
 
 ### Step 3: Build Registry
 
 ```bash
-npm run registry:sync
+npm run registry:build
 ```
 
-This command does two things:
+This command does three things:
 
 1. **Generates `registry.json`** from `icons/index.ts` (ensures all icons are included)
 2. **Builds individual JSON files** in `public/r/` for the shadcn CLI
+3. **Formats** `registry.json` and `public/r/*.json` files
 
 Wait for it to succeed before proceeding.
 
@@ -356,7 +357,7 @@ To verify icons work when installed via the shadcn CLI:
 npm run check
 
 # Verify registry syncs successfully (generates + builds)
-npm run registry:sync
+npm run registry:build
 ```
 
 ## Making Changes
@@ -431,7 +432,7 @@ docs: update contributing guidelines
 
    - [ ] Code follows project style guidelines
    - [ ] `npm run check` passes
-   - [ ] `npm run registry:sync` passes (for new icons)
+   - [ ] `npm run registry:build` passes (for new icons)
    - [ ] Icons work on all screen sizes
    - [ ] Self-review completed
    ```

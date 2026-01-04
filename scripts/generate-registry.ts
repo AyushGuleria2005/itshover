@@ -2,7 +2,7 @@
  * Script to generate registry.json from icons directory
  *
  * This ensures the shadcn registry stays in sync with the icon files.
- * Run with: `npm run registry:generate` or `npm run registry:sync`
+ * Run with: `npm run registry:build`
  */
 
 import * as fs from "fs";
@@ -99,15 +99,20 @@ function generateRegistry(): void {
   };
 
   console.log("Writing registry.json...");
-  fs.writeFileSync(REGISTRY_PATH, JSON.stringify(registry, null, 2) + "\n");
+
+  // Add auto-generated notice as a JSON field (since JSON doesn't support comments)
+  const registryWithNotice = {
+    _generated:
+      "AUTO-GENERATED FILE - DO NOT EDIT. Run 'npm run registry:build' to regenerate.",
+    ...registry,
+  };
+
+  const jsonContent = JSON.stringify(registryWithNotice, null, 2) + "\n";
+  fs.writeFileSync(REGISTRY_PATH, jsonContent);
 
   console.log("");
   console.log("✔ Registry generated successfully!");
   console.log(`  - Total icons: ${items.length}`);
-  console.log("");
-  console.log(
-    'Next step: Run "npm run registry:build" to generate public/r/*.json files',
-  );
   console.log("");
 }
 

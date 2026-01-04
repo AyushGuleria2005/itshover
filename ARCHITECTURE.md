@@ -152,7 +152,7 @@ The registry is auto-generated in two steps:
 Run both with:
 
 ```bash
-npm run registry:sync
+npm run registry:build
 ```
 
 This ensures the registry stays in sync with `icons/index.ts` and prevents missing icons.
