@@ -23,7 +23,7 @@ const ExampleDetailPage = async ({ params }: PageProps) => {
     <div className="bg-background text-foreground min-h-screen p-8">
       <div className="mx-auto grid max-w-[1600px] grid-cols-1 gap-12 lg:grid-cols-[1fr_300px]">
         {/* Main Content */}
-        <div className="min-w-0 flex flex-col gap-8">
+        <div className="flex min-w-0 flex-col gap-8">
           {/* Header */}
           <div className="flex flex-col gap-4">
             <h1 className="text-3xl font-bold tracking-tight md:text-5xl">
