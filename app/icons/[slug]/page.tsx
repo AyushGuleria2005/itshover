@@ -36,8 +36,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-
-
 export default async function IconDetailPage({ params }: Props) {
   const { slug } = await params;
   let code = "";
