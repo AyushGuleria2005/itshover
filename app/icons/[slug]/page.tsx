@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import { notFound } from "next/navigation";
 import IconDetailContent from "./icon-detail-content";
 import { getIconsContent } from "@/actions/get-icons-content";
 import fs from "fs";
@@ -35,9 +36,20 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
+
+
 export default async function IconDetailPage({ params }: Props) {
   const { slug } = await params;
-  const code = await getIconsContent(slug);
+  let code = "";
+
+  try {
+    code = await getIconsContent(slug);
+    if (!code) {
+      notFound();
+    }
+  } catch (error) {
+    notFound();
+  }
 
   return <IconDetailContent slug={slug} code={code} />;
 }
