@@ -1722,14 +1722,14 @@
       ]
     },
     {
-      "name": "hostel-icon",
+      "name": "hotel-icon",
       "type": "registry:ui",
       "registryDependencies": [],
       "dependencies": ["motion"],
       "devDependencies": [],
       "files": [
         {
-          "path": "icons/hostel-icon.tsx",
+          "path": "icons/hotel-icon.tsx",
           "type": "registry:ui"
         },
         {

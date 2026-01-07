@@ -187,7 +187,7 @@ import YoutubeIcon from "./youtube-icon";
 import PassportIcon from "./passport-icon";
 import AirplaneIcon from "./airplane-icon";
 import TravelBag from "./travel-bag";
-import HotelIcon from "./hostel-icon";
+import HotelIcon from "./hotel-icon";
 
 export interface IconType {
   name: string;
