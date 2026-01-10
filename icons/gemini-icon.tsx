@@ -9,8 +9,11 @@ const GeminiIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
     const start = useCallback(() => {
       animate(
         scope.current,
-        { scale: [1, 1.08, 1], rotate: [0, 8, 0] },
-        { duration: 0.6, ease: "easeInOut" },
+        { scale: 0.9, rotate: [0, 180] },
+        {
+          duration: 0.8,
+          ease: "easeInOut",
+        },
       );
     }, [animate, scope]);
 
@@ -18,7 +21,10 @@ const GeminiIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
       animate(
         scope.current,
         { scale: 1, rotate: 0 },
-        { duration: 0.3, ease: "easeOut" },
+        {
+          duration: 0.8,
+          ease: "easeInOut",
+        },
       );
     }, [animate, scope]);
 
@@ -40,9 +46,16 @@ const GeminiIcon = forwardRef<AnimatedIconHandle, AnimatedIconProps>(
         viewBox="0 0 24 24"
         height={size}
         width={size}
-        style={{ flex: "none", lineHeight: 1 }}
         xmlns="http://www.w3.org/2000/svg"
         className={className}
+        role="img"
+        aria-label="Gemini"
+        style={{
+          flex: "none",
+          lineHeight: 1,
+          transformBox: "fill-box",
+          transformOrigin: "center",
+        }}
       >
         <title>Gemini</title>
 
