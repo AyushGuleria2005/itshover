@@ -75,7 +75,7 @@ const Footer = () => {
     { Icon: MessageCircleIcon, name: "message", path: "message-circle-icon" },
     { Icon: SendIcon, name: "send", path: "send-icon" },
     { Icon: GithubIcon, name: "github", path: "github-icon" },
-    { Icon: TwitterXIcon, name: "twitter", path: "twitter-icon" },
+    { Icon: TwitterXIcon, name: "twitter", path: "twitter-x-icon" },
   ];
 
   const [isRequestModalOpen, setIsRequestModalOpen] = useState(false);
