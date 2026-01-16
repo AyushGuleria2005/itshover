@@ -63,12 +63,14 @@ const DockItem = ({
       href={href}
       target="_blank"
       rel="noopener noreferrer"
+      aria-label={label}
       className="relative flex items-center justify-center"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       whileHover={{ scale: 1.2, y: -8 }}
       transition={{ type: "spring", stiffness: 300, damping: 20 }}
     >
+      <span className="sr-only">{label}</span>
       <div className="relative flex h-12 w-12 items-center justify-center rounded-2xl border border-neutral-200 bg-white shadow-lg dark:border-neutral-700 dark:bg-neutral-800">
         <Icon
           ref={iconRef}
