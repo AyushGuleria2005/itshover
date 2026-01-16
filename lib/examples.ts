@@ -66,7 +66,7 @@ const EXAMPLE_REGISTRY = [
       "An animated dock navigation component inspired by macOS. Features smooth hover interactions and individual icon animations for fast, compact navigation.",
     tags: ["UI", "Animation", "Framer Motion", "Interactive"],
     fullWidth: true,
-  }
+  },
 ];
 
 export function getExamples() {
