@@ -1,9 +1,10 @@
 "use client";
+
 import { useState } from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import { motion } from "motion/react";
 import { LINKS, SPONSOR } from "@/constants";
+
 import GithubIcon from "@/icons/github-icon";
 import TwitterXIcon from "@/icons/twitter-x-icon";
 import HeartIcon from "@/icons/heart-icon";
@@ -25,6 +26,7 @@ import GearIcon from "@/icons/gear-icon";
 import MessageCircleIcon from "@/icons/message-circle-icon";
 import SendIcon from "@/icons/send-icon";
 import CheckedIcon from "@/icons/checked-icon";
+
 import RequestIconModal from "./request-icon-modal";
 
 const CryptoAddress = ({
@@ -45,7 +47,7 @@ const CryptoAddress = ({
   return (
     <button
       onClick={handleCopy}
-      className="hover:text-foreground group flex cursor-pointer items-center gap-1.5 text-left text-xs transition-colors"
+      className="group flex cursor-pointer items-center gap-1.5 text-left text-xs transition-colors hover:text-foreground"
     >
       <span className="truncate">
         {label}: {address.slice(0, 20)}...
@@ -56,7 +58,8 @@ const CryptoAddress = ({
 };
 
 const Footer = () => {
-  const router = useRouter();
+  const [isRequestModalOpen, setIsRequestModalOpen] = useState(false);
+
   const featuredIcons = [
     { Icon: HeartIcon, name: "heart", path: "heart-icon" },
     { Icon: RocketIcon, name: "rocket", path: "rocket-icon" },
@@ -80,8 +83,6 @@ const Footer = () => {
     { Icon: TwitterXIcon, name: "twitter", path: "twitter-icon" },
   ];
 
-  const [isRequestModalOpen, setIsRequestModalOpen] = useState(false);
-
   return (
     <motion.footer
       initial={{ opacity: 0, y: 20 }}
@@ -92,30 +93,22 @@ const Footer = () => {
     >
       <div className="w-full px-4 py-12 md:px-8 lg:px-12">
         <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-4">
+          {/* Quick Links */}
           <div className="space-y-4">
             <h3 className="text-lg font-semibold">Quick Links</h3>
             <nav className="flex flex-col space-y-3">
-              <Link
-                href="/"
-                className="text-muted-foreground hover:text-foreground transition-colors"
-              >
+              <Link href="/" className="text-muted-foreground transition-colors hover:text-foreground">
                 Home
               </Link>
-              <Link
-                href="/icons"
-                className="text-muted-foreground hover:text-foreground transition-colors"
-              >
+              <Link href="/icons" className="text-muted-foreground transition-colors hover:text-foreground">
                 Icons
               </Link>
-              <Link
-                href="/sponsor"
-                className="text-muted-foreground hover:text-foreground transition-colors"
-              >
+              <Link href="/sponsor" className="text-muted-foreground transition-colors hover:text-foreground">
                 Sponsor
               </Link>
               <button
                 onClick={() => setIsRequestModalOpen(true)}
-                className="text-muted-foreground hover:text-foreground text-left transition-colors"
+                className="text-left text-muted-foreground transition-colors hover:text-foreground"
               >
                 Request an Icon
               </button>
@@ -123,7 +116,7 @@ const Footer = () => {
                 href={LINKS.GITHUB}
                 target="_blank"
                 rel="noreferrer"
-                className="text-muted-foreground hover:text-foreground transition-colors"
+                className="text-muted-foreground transition-colors hover:text-foreground"
               >
                 GitHub
               </Link>
@@ -131,13 +124,14 @@ const Footer = () => {
                 href={LINKS.BAGS_FM}
                 target="_blank"
                 rel="noreferrer"
-                className="bg-primary hover:bg-primary/90 inline-flex w-fit items-center rounded-full px-3 py-1 text-sm font-semibold text-white transition-all duration-200 hover:scale-105"
+                className="inline-flex w-fit items-center rounded-full bg-primary px-3 py-1 text-sm font-semibold text-white transition-all duration-200 hover:scale-105 hover:bg-primary/90"
               >
                 $hover
               </Link>
             </nav>
           </div>
 
+          {/* Sponsor */}
           <div className="space-y-4">
             <h3 className="text-lg font-semibold">Sponsor</h3>
             <div className="flex flex-col space-y-3">
@@ -145,13 +139,14 @@ const Footer = () => {
                 href={SPONSOR.buymeacoffee}
                 target="_blank"
                 rel="noreferrer"
-                className="text-muted-foreground hover:text-foreground inline-flex items-center gap-2 transition-colors"
+                className="inline-flex items-center gap-2 text-muted-foreground transition-colors hover:text-foreground"
               >
                 <CoffeeIcon size={16} />
                 Buy Me a Coffee
               </Link>
-              <div className="text-muted-foreground space-y-2 text-sm">
-                <p className="text-foreground font-medium">Crypto</p>
+
+              <div className="space-y-2 text-sm text-muted-foreground">
+                <p className="font-medium text-foreground">Crypto</p>
                 <CryptoAddress label="BTC" address={SPONSOR.btc} />
                 <CryptoAddress label="ETH" address={SPONSOR.eth} />
                 <CryptoAddress label="SOL" address={SPONSOR.sol} />
@@ -159,32 +154,39 @@ const Footer = () => {
             </div>
           </div>
 
+          {/* Featured Icons */}
           <div className="space-y-4 lg:col-span-2">
             <h3 className="text-lg font-semibold">Featured Icons</h3>
             <div className="grid grid-cols-5 gap-3 sm:grid-cols-6 md:grid-cols-5 lg:grid-cols-10">
               {featuredIcons.map(({ Icon, name, path }) => (
-                <motion.div
+                <Link
                   key={name}
-                  whileHover={{ scale: 1.1 }}
-                  onClick={() => router.push(`/icons/${path}`)}
-                  className="hover:bg-accent flex items-center justify-center rounded-lg border p-2 transition-colors"
+                  href={`/icons/${path}`}
+                  aria-label={`${name} icon`}
+                  className="flex items-center justify-center rounded-lg border p-2 transition-colors hover:bg-accent"
                 >
-                  <Icon size={20} />
-                </motion.div>
+                  <motion.span
+                    whileHover={{ scale: 1.1 }}
+                    className="flex h-full w-full items-center justify-center"
+                  >
+                    <Icon size={20} />
+                  </motion.span>
+                </Link>
               ))}
             </div>
           </div>
         </div>
 
+        {/* Bottom bar */}
         <div className="mt-12 border-t pt-8">
           <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
-            <p className="text-muted-foreground text-center text-sm md:text-left">
+            <p className="text-center text-sm text-muted-foreground md:text-left">
               Built by{" "}
               <Link
                 href={LINKS.CREATOR}
                 target="_blank"
                 rel="noreferrer"
-                className="hover:text-foreground font-medium underline underline-offset-4 transition-colors"
+                className="font-medium underline underline-offset-4 transition-colors hover:text-foreground"
               >
                 Abhijit
               </Link>
@@ -193,7 +195,7 @@ const Footer = () => {
                 href={LINKS.GITHUB}
                 target="_blank"
                 rel="noreferrer"
-                className="hover:text-foreground font-medium underline underline-offset-4 transition-colors"
+                className="font-medium underline underline-offset-4 transition-colors hover:text-foreground"
               >
                 GitHub
               </Link>
@@ -205,7 +207,7 @@ const Footer = () => {
                 href={LINKS.BAGS_FM}
                 target="_blank"
                 rel="noreferrer"
-                className="bg-primary hover:bg-primary/90 inline-flex items-center rounded-full px-3 py-1 text-sm font-semibold text-white transition-all duration-200 hover:scale-105"
+                className="inline-flex items-center rounded-full bg-primary px-3 py-1 text-sm font-semibold text-white transition-all duration-200 hover:scale-105 hover:bg-primary/90"
                 aria-label="$hover token"
               >
                 $hover
@@ -214,7 +216,7 @@ const Footer = () => {
                 href={LINKS.GITHUB}
                 target="_blank"
                 rel="noreferrer"
-                className="text-muted-foreground hover:text-foreground transition-colors"
+                className="text-muted-foreground transition-colors hover:text-foreground"
                 aria-label="GitHub"
               >
                 <GithubIcon size={20} />
@@ -223,7 +225,7 @@ const Footer = () => {
                 href={LINKS.TWITTER}
                 target="_blank"
                 rel="noreferrer"
-                className="text-muted-foreground hover:text-foreground transition-colors"
+                className="text-muted-foreground transition-colors hover:text-foreground"
                 aria-label="Twitter"
               >
                 <TwitterXIcon size={20} />
@@ -232,6 +234,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
+
       <RequestIconModal
         isOpen={isRequestModalOpen}
         onClose={() => setIsRequestModalOpen(false)}
